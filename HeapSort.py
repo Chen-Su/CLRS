@@ -27,9 +27,7 @@ def MaxHeapify(A, i, heapsize):
     if r < heapsize and A[r] > A[largest]:
         largest = r
     if largest != i:
-        tmp = A[i]
-        A[i] = A[largest]
-        A[largest] = tmp
+        A[i], A[largest] = A[largest], A[i]
         MaxHeapify(A, largest, heapsize)
 
 
@@ -54,9 +52,7 @@ def HeapSort(A):
     BuildMaxHeap(A)
     heapsize = len(A)
     while (heapsize > 1):
-        tmp = A[0]
-        A[0] = A[heapsize-1]
-        A[heapsize-1] = tmp
+        A[0], A[heapsize-1] = A[heapsize-1], A[0]
         heapsize -= 1
         MaxHeapify(A, 0, heapsize)
 
