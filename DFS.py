@@ -27,6 +27,16 @@ def dfs(G):
     for i in range(G.node_num):
         print(i+1, d[i], f[i])
 
+    # Topological
+    l = [(i+1, f[i]) for i in range(G.node_num)]
+    print(l)
+    l = sorted(l, key=lambda x : x[1])
+    print(l)
+    for i in range(G.node_num):
+        print(l[i][0], end='->')
+    print()
+
+
 def dfsVisit(G, color, pi, d, f, time, u):
     color[u] = Color.GRAY
     time += 1
